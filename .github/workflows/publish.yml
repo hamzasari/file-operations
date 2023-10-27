@@ -1,7 +1,7 @@
 name: Node.js CI
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -21,3 +21,10 @@ jobs:
       run: npm run build
     - name: Test
       run: npm run test
+    - name: Publish to npm
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        npm publish
+      env:
+        CI: true
