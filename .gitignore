@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# TypeScript build artifacts
+dist/
+
+# IDE - Visual Studio Code
+.vscode/
+
+# Operating System
+.DS_Store
+Thumbs.db
