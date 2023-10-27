@@ -15,7 +15,6 @@
     "file-operations": "dist/index.js"
   },
   "dependencies": {
-    "commander": "^11.1.0",
     "inquirer": "^9.2.11"
   },
   "devDependencies": {
