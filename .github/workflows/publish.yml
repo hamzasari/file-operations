@@ -27,6 +27,6 @@ jobs:
       if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
       run: |
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        npm publish
+        npm publish --access public
       env:
         CI: true
