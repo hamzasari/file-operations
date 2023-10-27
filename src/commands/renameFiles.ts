@@ -1,8 +1,8 @@
-import * as fs from 'fs';;
-import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const renameFiles = (directoryPath: string, prefix = '', suffix = '') => {
-  fs.readdir(directoryPath, (err, files) => {
+  fs.readdir(directoryPath, (err: string, files: string[]) => {
       if (err) return console.error('Error reading directory:', err);
 
       files.forEach((file, index) => {
@@ -10,7 +10,7 @@ const renameFiles = (directoryPath: string, prefix = '', suffix = '') => {
 
           const oldPath = path.join(directoryPath, file);
           const newPath = path.join(directoryPath, `${prefix}${baseName}${suffix}${path.extname(file)}`);
-          fs.rename(oldPath, newPath, (err) => {
+          fs.rename(oldPath, newPath, (err: string) => {
               if (err) console.error('Error renaming file:', err);
               else console.log(`${file} -> ${path.basename(newPath)}`);
           });
@@ -18,4 +18,4 @@ const renameFiles = (directoryPath: string, prefix = '', suffix = '') => {
   });
 };
 
-export default renameFiles;
+module.exports = renameFiles;

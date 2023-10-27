@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import inquirer from 'inquirer';
-import renameFiles from './commands/renameFiles';
 import { CommandValues } from './types';
+
+const inquirer = require('inquirer');
+const renameFiles = require('./commands/renameFiles');
 
 async function main() {
     const { operation } = await inquirer.prompt([
